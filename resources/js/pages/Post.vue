@@ -1,9 +1,20 @@
 <template>
   <div class="post">
-    <div v-if="test" class="container">
-      <h1>{{ test.title }}</h1>
-      <p>{{ test.content }}</p>
-      <h2>categoria: {{ test.category.name }}</h2>
+    <div v-if="post" class="container">
+      <h1 class="text-white py-2 font-weight-bold">{{ post.title }}</h1>
+      <p class="text-white py-2">{{ post.content }}</p>
+      <h4 class="text-white">
+        <span>Categoria:</span> {{ post.category.name }}
+      </h4>
+      <div class="text-white">
+        Tags:
+        <span
+          class="btn btn-info mx-1"
+          v-for="tag in post.tags"
+          :key="tag.id"
+          >{{ tag.name }}</span
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -14,7 +25,7 @@ export default {
   name: "Post",
   data() {
     return {
-      test: null,
+      post: null,
     };
   },
   created() {
@@ -22,7 +33,7 @@ export default {
       .get(`/api/posts/${this.$route.params.slug}`)
       .then((res) => {
         console.log(res.data);
-        this.test = res.data;
+        this.post = res.data;
       })
       .catch((err) => {
         console.log(err);
@@ -33,7 +44,15 @@ export default {
 
 //
 <style lang="scss" scoped>
-// [v-cloak] {
-//   display: none;
-// }
+.post {
+  background-color: rgb(29, 94, 179);
+  .container {
+    height: calc(100vh - 230px);
+  }
+  h4 {
+    span {
+      color: white;
+    }
+  }
+}
 </style>

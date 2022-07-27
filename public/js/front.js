@@ -1980,7 +1980,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "Post",
   data: function data() {
     return {
-      test: null
+      post: null
     };
   },
   created: function created() {
@@ -1988,7 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
       console.log(res.data);
-      _this.test = res.data;
+      _this.post = res.data;
     })["catch"](function (err) {
       console.log(err);
     });
@@ -2228,9 +2228,22 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "post"
-  }, [_vm.test ? _c("div", {
+  }, [_vm.post ? _c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v(_vm._s(_vm.test.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.test.content))]), _vm._v(" "), _c("h2", [_vm._v("categoria: " + _vm._s(_vm.test.category.name))])]) : _vm._e()]);
+  }, [_c("h1", {
+    staticClass: "text-white py-2 font-weight-bold"
+  }, [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", {
+    staticClass: "text-white py-2"
+  }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("h4", {
+    staticClass: "text-white"
+  }, [_c("span", [_vm._v("Categoria:")]), _vm._v(" " + _vm._s(_vm.post.category.name) + "\n    ")]), _vm._v(" "), _c("div", {
+    staticClass: "text-white"
+  }, [_vm._v("\n      Tags:\n      "), _vm._l(_vm.post.tags, function (tag) {
+    return _c("span", {
+      key: tag.id,
+      staticClass: "btn btn-info mx-1"
+    }, [_vm._v(_vm._s(tag.name))]);
+  })], 2)]) : _vm._e()]);
 };
 
 var staticRenderFns = [];
@@ -2355,7 +2368,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".post[data-v-1f9218ae] {\n  background-color: rgb(29, 94, 179);\n}\n.post .container[data-v-1f9218ae] {\n  height: calc(100vh - 230px);\n}\n.post h4 span[data-v-1f9218ae] {\n  color: white;\n}", ""]);
 
 // exports
 
