@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-primary p-4 text-center">
+  <footer class="bg-primary p-3 text-center">
     <h2 class="text-capitalize text-warning">made with love by me</h2>
   </footer>
 </template>

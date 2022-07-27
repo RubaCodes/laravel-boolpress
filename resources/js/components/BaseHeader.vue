@@ -1,11 +1,11 @@
 <template>
-  <header class="p-5 bg-primary text-white">
+  <header class="p-3 bg-primary text-white">
     <div class="row">
       <div class="col d-flex align-items-center">
         logo bel blog
         <ul class="d-flex">
           <li>
-            <router-link class="btn btn-info border" :to="{ name: 'home' }"
+            <router-link class="btn btn-info border" :to="{ name: 'posts' }"
               >Home</router-link
             >
           </li>

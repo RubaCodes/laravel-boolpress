@@ -42,4 +42,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+section {
+  background-color: rgb(29, 94, 179);
+  .container {
+    height: calc(100vh - 230px);
+  }
+}
+</style>
