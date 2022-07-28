@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 use App\Post;
 use App\Tag;
 use App\Category;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 
 class PostsController extends Controller
@@ -51,7 +53,8 @@ class PostsController extends Controller
             "content" => "string|required|max:65535",
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'nullable|exists:tags,id',
-            "published" => "sometimes|accepted"
+            "published" => "sometimes|accepted",
+            'image' => "string|image"
         ]);
         //store
         $data = $request->all();
@@ -61,6 +64,7 @@ class PostsController extends Controller
         $newPost->published = isset($data['published']);
         $newPost->category_id = $data['category_id'];
         $newPost->slug = Str::of($data['title'])->slug('-');
+        $newPost->image = Storage::put('images', $data['image']);
         $newPost->save();
 
         //sync su pivot
