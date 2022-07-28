@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-header text-uppercase ">Modifica Post</div>
         <div class="card-body">
-            <form action="{{route('admin.posts.update', $post)}}" method="POST">
+            <form action="{{route('admin.posts.update', $post)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -21,6 +21,14 @@
                 <label for="content">Inserisci il contenuto del post</label>
                 <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content"
                     rows="7">{{old('content',$post->content)}}</textarea>
+                @error('content')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+                {{-- file upload--}}
+                <label class="pt-4" for="image">Carica Immagine</label>
+                <input type="file" class="form-control-file @error('title') is-invalid @enderror" id="image"
+                    name="image" value="{{old('image')}}">
                 @error('content')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

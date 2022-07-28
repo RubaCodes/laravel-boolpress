@@ -132,6 +132,9 @@ class PostsController extends Controller
         $post->published = isset($data['published']);
         $post->category_id = $data['category_id'];
         $post->slug = Str::of($data['title'])->slug('-');
+        //update dellimmagine con rimozione
+        Storage::delete('images', $post->image);
+        $post->image = Storage::put('images', $data['image']);
         $post->save();
 
         //sync su pivot
@@ -151,6 +154,7 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
+        Storage::delete('images', $post->image);
         $post->delete();
         return redirect()->route('admin.posts.index');
     }
