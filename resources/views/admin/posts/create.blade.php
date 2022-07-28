@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-header text-uppercase ">Crea nuovo post</div>
         <div class="card-body">
-            <form action="{{route('admin.posts.store')}}" method="POST">
+            <form action="{{route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 {{-- Titolo del post --}}
                 <div class="form-group">
@@ -26,8 +26,16 @@
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
+                {{-- file upload--}}
+                <label class="pt-4" for="image">Carica Immagine</label>
+                <input type="file" class="form-control-file @error('title') is-invalid @enderror" id="image"
+                    name="image" value="{{old('image')}}">
+                @error('content')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
                 {{-- Select Categories --}}
-                <label for="category_id">Seleziona la categoria</label>
+                <label class="pt-4" for="category_id">Seleziona la categoria</label>
                 <select class="form-control @error('content') is-invalid @enderror" name="category_id" id="category_id">
                     <option value="">Seleziona Categoria</option>
                     @foreach ($categories as $category)
