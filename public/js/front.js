@@ -2443,7 +2443,8 @@ var render = function render() {
     staticClass: "text-white py-2"
   }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("img", {
     attrs: {
-      src: "images/".concat(_vm.post.image),
+      width: "400",
+      src: "/storage/".concat(_vm.post.image),
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
