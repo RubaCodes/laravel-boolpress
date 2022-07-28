@@ -9,6 +9,7 @@ import PostFeed from "./pages/PostFeed";
 import CategoriesFeed from "./pages/CategoriesFeed";
 import Post from "./pages/Post";
 import Category from "./pages/Category";
+import Page404 from "./pages/Page404";
 
 //settings delle rotte
 const router = new VueRouter({
@@ -38,6 +39,11 @@ const router = new VueRouter({
       path: "/categories/:slug",
       name: "category",
       component: Category,
+    },
+    {
+      path: "/*",
+      name: "404",
+      component: Page404,
     },
   ],
 });

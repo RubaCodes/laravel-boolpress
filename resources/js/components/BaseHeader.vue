@@ -9,6 +9,13 @@
               >Home</router-link
             >
           </li>
+          <li>
+            <router-link
+              class="btn btn-info border"
+              :to="{ name: 'categories' }"
+              >Categories</router-link
+            >
+          </li>
         </ul>
       </div>
       <div class="col">
