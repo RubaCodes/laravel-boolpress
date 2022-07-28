@@ -5,6 +5,7 @@
         {{ post.title }}
       </h1>
       <p class="text-white py-2">{{ post.content }}</p>
+      <img :src="`images/${post.image}`" alt="" />
       <div class="info d-flex justify-content-between align-items-center">
         <h4 class="text-white">
           <span>Categoria:</span> {{ post.category.name }}

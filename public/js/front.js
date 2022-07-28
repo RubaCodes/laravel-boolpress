@@ -2441,7 +2441,12 @@ var render = function render() {
     staticClass: "text-white text-center py-2 font-weight-bold"
   }, [_vm._v("\n      " + _vm._s(_vm.post.title) + "\n    ")]), _vm._v(" "), _c("p", {
     staticClass: "text-white py-2"
-  }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("img", {
+    attrs: {
+      src: "images/".concat(_vm.post.image),
+      alt: ""
+    }
+  }), _vm._v(" "), _c("div", {
     staticClass: "info d-flex justify-content-between align-items-center"
   }, [_c("h4", {
     staticClass: "text-white"
