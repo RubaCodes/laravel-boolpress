@@ -54,7 +54,7 @@ class PostsController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'nullable|exists:tags,id',
             "published" => "sometimes|accepted",
-            'image' => "string|image"
+            'image' => "image"
         ]);
         //store
         $data = $request->all();

@@ -13,6 +13,10 @@
                 <h2 class="text-primary">Contenuto del post</h2>
                 {{$post->content}}
             </div>
+            <div>
+                <h2>Immagine</h2>
+                <img width="400" src="{{asset('storage/'.$post->image)}}" alt="">
+            </div>
             <div class="py-4">
                 <h2 class="text-primary">Stato pubblicazione:</h2>
                 {{$post->published ? "Il post e' stato pubblicato" : "Il post non e' stato ancora pubblicato"}}
