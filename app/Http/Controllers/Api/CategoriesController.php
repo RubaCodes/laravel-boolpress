@@ -10,7 +10,11 @@ use App\Category;
 class CategoriesController extends Controller
 {
     public function index(){
-        
         return response(Category::all());
+    }
+
+    public function show($slug){
+        $category = Category::where('slug', $slug)->with('posts')->first();
+        return response($category);
     }
 }

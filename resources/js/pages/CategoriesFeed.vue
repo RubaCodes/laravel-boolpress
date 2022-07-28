@@ -7,7 +7,10 @@
             <h2>
               {{ category.name }}
             </h2>
-            <!-- <router-link>Visualizza post associati</router-link> -->
+            <router-link
+              :to="{ name: 'category', params: { slug: category.slug } }"
+              >Visualizza post associati</router-link
+            >
           </div>
         </li>
       </ul>
